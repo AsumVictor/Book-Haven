@@ -1,4 +1,4 @@
-import Books from './components/Books.js'
-import Categories from './components/Categories.js'
+import Books from './components/Books';
+import Categories from './components/Categories';
 
-export { Books, Categories }
+export { Books, Categories };

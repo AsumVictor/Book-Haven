@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Button = ({ name }) => <button type="button">{name}</button>;
 
@@ -8,7 +8,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  name: "Button",
+  name: 'Button',
 };
 
 export default Button;

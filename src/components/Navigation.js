@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdAccountCircle } from 'react-icons/md';
 
-
 const Navbar = () => (
   <header>
     <h2 className="logo">BookStore CMS</h2>

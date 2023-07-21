@@ -23,7 +23,7 @@
 
 # 📖Math Magician <a name="about-project"></a>
 
-BookWorld is a comprehensive and user-friendly Books-store app developed to cater to all book enthusiasts, offering a seamless browsing and shopping experience. Whether you are an avid reader, a literature lover, or a student seeking academic resources, BookWorld has got you covered. This app is designed as part of the Microverse assignment to showcase the power of modern web technologies in creating a captivating online bookstore.
+Book Haven is a comprehensive and user-friendly Books-store app developed to cater to all book enthusiasts, offering a seamless browsing and shopping experience. Whether you are an avid reader, a literature lover, or a student seeking academic resources, BookWorld has got you covered. This app is designed as part of the Microverse assignment to showcase the power of modern web technologies in creating a captivating online bookstore.
 
 
 
@@ -42,16 +42,23 @@ BookWorld is a comprehensive and user-friendly Books-store app developed to cate
 
 ### Key Features <a name="key-features"></a>
 
-- Add Task: Users can add new tasks by entering a title and optional description.
-- View Tasks: The application displays a list of all the tasks with their corresponding details.
-- Mark as Complete: Users can mark tasks as complete, providing a sense of accomplishment.
-- Edit Task: Users can edit the title or description of existing tasks to keep the list up-to-date.
-- Delete Task: Tasks can be deleted individually when they are no longer needed.
-- Persistence: The application stores the tasks locally using browser storage to retain data between sessions.
+- Extensive Book Collection: BookWorld boasts an extensive collection of books, covering various genres, authors, and topics. From timeless classics to contemporary bestsellers, users can discover an impressive array of books.
 
- ## Live demo <a name="key-features"></a>
+- User-Friendly Interface: The app features an intuitive and aesthetically pleasing interface, making it effortless for users to navigate through different sections and find their favorite books.
 
-I have deployed the project of github. [Click to view the live version of my project](https://aiasum-todo.netlify.app/) 
+- Personalized Recommendations: BookWorld understands its users' preferences and offers personalized book recommendations based on their reading history, enhancing the overall shopping experience.
+
+- Search and Filters: Finding the perfect book is a breeze with BookWorld's powerful search and filtering options. Users can search by title, author, genre, or keywords to discover books that match their interests.
+
+- Book Details and Reviews: Each book comes with detailed information, including a synopsis, author details, and user reviews. These features help users make informed decisions before adding books to their carts.
+
+- User Accounts: To enhance the shopping experience, users can create accounts, enabling them to track orders, manage personal details, and view order history.
+
+- Responsive Design: BookWorld is built with a responsive design, ensuring a seamless and visually appealing experience across various devices, including desktops, tablets, and smartphones.
+
+ <!-- ## Live demo <a name="key-features"></a>
+
+I have deployed the project of github. [Click to view the live version of my project](https://aiasum-todo.netlify.app/)  -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -72,7 +79,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/AsumVictor/Math-magician.git
+  git clone https://github.com/AsumVictor/Book-Haven.git
 ```
 
 ### Install
