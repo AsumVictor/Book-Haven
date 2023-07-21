@@ -23,7 +23,9 @@
 
 # 📖Math Magician <a name="about-project"></a>
 
-This repository contains a Todo List web application, an exercise from microverse, that allows users to manage and organize their tasks efficiently. The application is built using react.js, with local storage mimicking the role of backend
+BookWorld is a comprehensive and user-friendly Books-store app developed to cater to all book enthusiasts, offering a seamless browsing and shopping experience. Whether you are an avid reader, a literature lover, or a student seeking academic resources, BookWorld has got you covered. This app is designed as part of the Microverse assignment to showcase the power of modern web technologies in creating a captivating online bookstore.
+
+
 
 
 
