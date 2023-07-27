@@ -9,7 +9,7 @@ export const fetchBooks = createAsyncThunk("books/getBooks", async () => {
     return response.data;
   } catch (error) {
     let errorMessage = error.response
-      ? error.response.data.message
+      ? error.response.data.error.message
       : error.message;
     return errorMessage;
   }
