@@ -1,13 +1,11 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import Book from './Book';
-import Form from './Form';
+import React from "react";
+import { useSelector } from "react-redux";
+import Book from "./Book";
+import Form from "./Form";
 
 const Books = () => {
-  const {
-    books, isLoading, isError, error,
-  } = useSelector(
-    (state) => state.book,
+  const { books, isLoading, isError, error } = useSelector(
+    (state) => state.book
   );
 
   if (isLoading) {
@@ -30,13 +28,15 @@ const Books = () => {
   }
 
   return (
-    <div className='px-3 md:px-10 w-full'>
+    <div className="px-3 md:px-10 w-full">
       {books.map((book) => (
         <Book
           key={book.id}
           id={book.id}
           title={book.title}
           author={book.author}
+          currentChapter={book.currentChapter}
+          progress={book.progress}
         />
       ))}
       <Form />
