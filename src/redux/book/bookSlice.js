@@ -1,24 +1,24 @@
-import { createReducer } from "@reduxjs/toolkit";
+import { createReducer } from '@reduxjs/toolkit';
 
 const initialState = {
   books: [
     {
-      item_id: "item1",
-      title: "The Great Gatsby",
-      author: "John Smith",
-      category: "Fiction",
+      item_id: 'item1',
+      title: 'The Great Gatsby',
+      author: 'John Smith',
+      category: 'Fiction',
     },
     {
-      item_id: "item2",
-      title: "Anna Karenina",
-      author: "Leo Tolstoy",
-      category: "Fiction",
+      item_id: 'item2',
+      title: 'Anna Karenina',
+      author: 'Leo Tolstoy',
+      category: 'Fiction',
     },
     {
-      item_id: "item3",
-      title: "The Selfish Gene",
-      author: "Richard Dawkins",
-      category: "Nonfiction",
+      item_id: 'item3',
+      title: 'The Selfish Gene',
+      author: 'Richard Dawkins',
+      category: 'Nonfiction',
     },
   ],
 };
@@ -38,14 +38,14 @@ export const bookReducer = createReducer(initialState, {
 // Actions
 export const AddBook = (book) => (dispatch) => {
   dispatch({
-    type: "add",
+    type: 'add',
     payload: book,
   });
 };
 
 export const RemoveBook = (id) => (dispatch) => {
   dispatch({
-    type: "remove",
+    type: 'remove',
     payload: id,
   });
 };

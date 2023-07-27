@@ -1,15 +1,14 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
-import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
-import { RemoveBook } from "../redux/book/bookSlice";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { RemoveBook } from '../redux/book/bookSlice';
 
 const Book = ({ id, title, author }) => {
   const dispatch = useDispatch();
 
   const handleRemove = (id) => {
     dispatch(RemoveBook(id));
-    
   };
 
   return (
@@ -19,7 +18,7 @@ const Book = ({ id, title, author }) => {
         By
         {author}
       </p>
-      <button className="px-3 py-1 bg-red-400" onClick={()=>handleRemove(id)}> Remove Book </button>
+      <button type="button" className="px-3 py-1 bg-red-400" onClick={() => handleRemove(id)}> Remove Book </button>
     </div>
   );
 };
@@ -27,12 +26,12 @@ const Book = ({ id, title, author }) => {
 Book.propTypes = {
   title: PropTypes.string,
   author: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
 };
 
 Book.defaultProps = {
-  title: "Book title",
-  author: "Unknown Author",
+  title: 'Book title',
+  author: 'Unknown Author',
 };
 
 export default Book;

@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Button = ({ name }) => (
   <button type="button">
@@ -12,7 +12,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  name: "Button",
+  name: 'Button',
 };
 
 export default Button;
