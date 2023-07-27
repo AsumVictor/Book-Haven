@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { addBook } from "../redux/book/bookSlice";
 import { nanoid } from "nanoid";
 
 const Form = () => {
-  const { books } = useSelector((state) => state.book);
   const dispatch = useDispatch();
   const [author, setAuthor] = useState("");
   const [title, setTitle] = useState("");
@@ -19,9 +18,10 @@ const Form = () => {
 
     dispatch(
       addBook({
-        item_id: nanoid(6),
+        item_id: nanoid(),
         author,
         title,
+        category: "unknown",
       })
     );
     setAuthor("");
@@ -31,7 +31,7 @@ const Form = () => {
   };
 
   return (
-    <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
+    <form className="flex flex-col gap-2" onSubmit={(e) => handleSubmit(e)}>
       <h3>ADD NEW BOOK</h3>
       <input
         type="text"

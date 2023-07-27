@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import BASE_URL from "../../server";
-
+import convertData from "../../helpers/convertData";
 // fetch actions
 export const fetchBooks = createAsyncThunk("books/getBooks", async () => {
   try {
@@ -17,9 +17,13 @@ export const fetchBooks = createAsyncThunk("books/getBooks", async () => {
 
 export const addBook = createAsyncThunk("books/addBook", async (book) => {
   try {
-    const response = await axios.delete(`${BASE_URL}/books`, book);
-    return response.data;
+    const response = await axios.post(`${BASE_URL}/books`, book);
+    if (!response.data) {
+      throw new Error("Error occured! Try again");
+    }
+    return book;
   } catch (error) {
+    console.log(error);
     let errorMessage = error.response
       ? error.response.data.message
       : error.message;
@@ -30,7 +34,10 @@ export const addBook = createAsyncThunk("books/addBook", async (book) => {
 export const removeBook = createAsyncThunk("books/removeBook", async (id) => {
   try {
     const response = await axios.delete(`${BASE_URL}/books/${id}`);
-    return response.data;
+    if (!response.data) {
+      throw new Error("Error occured! Try again");
+    }
+    return id;
   } catch (error) {
     let errorMessage = error.response
       ? error.response.data.message
@@ -45,6 +52,12 @@ const initialState = {
   isSuccess: false,
   isError: false,
   error: null,
+  adding: false,
+  addedSuccess: false,
+  addedError: null,
+  deleting: false,
+  deletedSuccess: false,
+  deletedError: null,
 };
 
 const bookSlice = createSlice({
@@ -68,7 +81,8 @@ const bookSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchBooks.fulfilled, (state, action) => {
-        state.books = action.payload;
+        const data = convertData(action.payload);
+        state.books = data;
         state.isSuccess = true;
         state.isLoading = false;
         state.isError = false;
@@ -81,40 +95,36 @@ const bookSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(addBook.pending, (state) => {
-        state.isLoading = true;
-        state.isError = false;
-        state.error = null;
+        state.adding = true;
+        state.addedError = null;
+        state.addedSuccess = false;
       })
       .addCase(addBook.fulfilled, (state, action) => {
         state.books = [...state.books, action.payload];
-        state.isSuccess = true;
-        state.isLoading = false;
-        state.isError = false;
-        state.error = null;
+        state.adding = false;
+        state.addedError = null;
+        state.addedSuccess = true;
       })
       .addCase(addBook.rejected, (state, action) => {
-        state.isSuccess = false;
-        state.isLoading = false;
-        state.isError = true;
-        state.error = action.payload;
+        state.adding = false;
+        state.addedError = action.payload;
+        state.addedSuccess = false;
       })
       .addCase(removeBook.pending, (state) => {
-        state.isLoading = true;
-        state.isError = false;
-        state.error = null;
+        state.deleting = true;
+        state.deletedSuccess = false;
+        state.deletedError = null;
       })
       .addCase(removeBook.fulfilled, (state, action) => {
-        state.books = state.books.filter(i=>i.item_id !==  action.payload);
-        state.isSuccess = true;
-        state.isLoading = false;
-        state.isError = false;
-        state.error = null;
+        state.books = state.books.filter((i) => i.id !== action.payload);
+        state.deleting = false;
+        state.deletedSuccess = true;
+        state.deletedError = null;
       })
       .addCase(removeBook.rejected, (state, action) => {
-        state.isSuccess = false;
-        state.isLoading = false;
-        state.isError = true;
-        state.error = action.payload;
+        state.deleting = false;
+        state.deletedSuccess = false;
+        state.deletedError = action.payload;
       });
   },
 });
