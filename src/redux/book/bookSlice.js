@@ -1,4 +1,4 @@
-import { createReducer } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   books: [
@@ -23,29 +23,33 @@ const initialState = {
   ],
 };
 
+const bookSlice = createSlice({
+ name: 'book',
+ initialState, 
+ reducers: {
+ add: (state, action) => {
+   state.books.push(action.payload);
+ },
+ remove: (state, action) => {
+   const id = action.payload;
+   const newState = state.books.filter((i) => i.item_id !== id);
+   state.books = newState;
+ },
+}});
+
 // Reducers
-export const bookReducer = createReducer(initialState, {
-  add: (state, action) => {
-    state.books.push(action.payload);
-  },
-  remove: (state, action) => {
-    const id = action.payload;
-    const newState = state.books.filter((i) => i.item_id !== id);
-    state.books = newState;
-  },
-});
+export const bookReducer = bookSlice.reducer
+// // Actions
+// export const AddBook = (book) => (dispatch) => {
+//   dispatch({
+//     type: 'add',
+//     payload: book,
+//   });
+// };
 
-// Actions
-export const AddBook = (book) => (dispatch) => {
-  dispatch({
-    type: 'add',
-    payload: book,
-  });
-};
-
-export const RemoveBook = (id) => (dispatch) => {
-  dispatch({
-    type: 'remove',
-    payload: id,
-  });
-};
+// export const RemoveBook = (id) => (dispatch) => {
+//   dispatch({
+//     type: 'remove',
+//     payload: id,
+//   });
+// };
