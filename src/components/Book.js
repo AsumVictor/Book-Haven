@@ -12,7 +12,7 @@ const Book = ({ id, title, author }) => {
   };
 
   return (
-    <div className="w-full bg-white hover:border-_blue mt-10 border rouned-md grid grid-cols-2">
+    <div className="w-full bg-white hover:border-_blue mt-10 border rouned-md grid 730px:grid-cols-2 gap-y-5 pb-3">
       <div className="px-2 md:px-6 pt-4 py-2 flex flex-col gap-3">
         <h3 className="font-bold text-gray-500">Category</h3>
         <h3 className="font-extrabold text-3xl text-black capitalize">
@@ -21,7 +21,7 @@ const Book = ({ id, title, author }) => {
         <p className="-mt-4 font-semibold text-_textBlue capitalize">
           {author}
         </p>
-        <div className="py-2 w-7/12 grid grid-cols-3 mt-5">
+        <div className="w-10/12 py-2 850px:w-10/12 1059px:w-7/12 grid grid-cols-3 mt-5">
           <div className="h-[1cm] flex items-center justify-start col-span-1 border-r-2 border-gray-200">
             <button className="text-_blue text-[18px]">Comment</button>
           </div>
@@ -41,21 +41,29 @@ const Book = ({ id, title, author }) => {
       </div>
       <div className=" grid grid-cols-2">
         <div className=" col-span-1 flex items-center justify-center">
-          <div className="w-full h-[3.5cm] flex items-center justify-center gap-2  border-r-2 border-r-gray-300">
-            <ProgressBar progress={31} />
-            <h3 className="flex flex-col text-center">
-              <span className="font-bold text-3xl">50%</span>
-              <span className="text-gray-500 semi-semibold text-xl">
+          <div className="w-full h-[3.5cm] flex items-center justify-center 850px:gap-2  border-r-2 border-r-gray-300 pr-2 gap-0">
+            <ProgressBar progress={31} classAddtion="max-730px:scale-[0.6]" />
+            <h3 className="flex flex-col text-center max-730px:-ml-4">
+              <span className="font-bold text-xl 850px:text-2xl 1060px:text-3xl">
+                50%
+              </span>
+              <span className="text-gray-500 semi-semibold 850px:text-[16px] 1060px:text-xl">
                 Completed
               </span>
             </h3>
           </div>
-          
         </div>
-        <div className=" col-span-1 flex px-10 justify-center flex-col">
-         <h3 className="text-[20px] text-gray-500">CURRENT CHAPTER</h3>
-         <h3 className="text-[18px] font-semibold text-black">Chapter 17</h3>
-         <button className="bg-_blue text-white py-2 text-xl rounded-md mt-4">UPDATE PROGRESS</button>         
+        <div className=" col-span-1 flex px-2 850px:px-10 justify-center flex-col">
+          <h3 className="text-[16px] 850px:text-[20px] text-gray-500">
+            CURRENT CHAPTER
+          </h3>
+          <h3 className="text-[18px] font-semibold text-black">Chapter 17</h3>
+          <button
+            type="button"
+            className="bg-_blue text-white py-2 text-[16px] 850px:text-xl rounded-md mt-4"
+          >
+            UPDATE PROGRESS
+          </button>
         </div>
       </div>
     </div>

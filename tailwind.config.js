@@ -12,6 +12,9 @@ module.exports = {
       },
       screens: {
         "620px": "620px",
+        "730px" : "730px",
+        "850px": "850px",
+        "1059px":"1060px",
       },
     },
   },

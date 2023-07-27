@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 
-const ProgressBar = ({ progress }) => {
+const ProgressBar = ({ progress, classAddtion }) => {
   return (
-    <div className="relative">
+    <div className={`relative  ${classAddtion}`}>
       <div className="w-24 h-24">
         <svg className="transform -rotate-90" viewBox="0 0 24 24">
           <circle
@@ -32,6 +32,7 @@ export default ProgressBar;
 
 ProgressBar.propTypes = {
   progress: PropTypes.number,
+  classAddtion: PropTypes.string.isRequired,
 };
 
 ProgressBar.defaultProps = {
