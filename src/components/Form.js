@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-toastify";
-import { nanoid } from "nanoid";
-import { addBook } from "../redux/book/bookSlice";
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import { nanoid } from 'nanoid';
+import { addBook } from '../redux/book/bookSlice';
 
 const Form = () => {
   const dispatch = useDispatch();
   const { adding, addedSuccess } = useSelector((state) => state.book);
-  const [author, setAuthor] = useState("");
-  const [title, setTitle] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [author, setAuthor] = useState('');
+  const [title, setTitle] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
   const handleCategoryChange = (e) => {
     const selectedCategory = e.target.value;
     setSelectedCategory(selectedCategory);
@@ -18,11 +18,11 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      title.trim() === "" ||
-      author.trim() === "" ||
-      selectedCategory.trim() === ""
+      title.trim() === ''
+      || author.trim() === ''
+      || selectedCategory.trim() === ''
     ) {
-      toast.error("All fileds must be completed");
+      toast.error('All fileds must be completed');
       return null;
     }
 
@@ -32,12 +32,13 @@ const Form = () => {
         author,
         title,
         category: selectedCategory,
-      })
+      }),
     );
     if (addedSuccess) {
-      setAuthor("");
-      setTitle("");
-      setSelectedCategory("");
+      setAuthor('');
+      setTitle('');
+      setSelectedCategory('');
+      toast.success('You have added a book successfuly');
     }
 
     return null;
@@ -94,7 +95,7 @@ const Form = () => {
           type="submit"
           className="px-3 py-2 730px:w-8/12 w-full  bg-_blue font-semibold text-xl text-white mx-4 rounded-md disabled:bg-gray-300 flex justify-center items-center"
         >
-          {adding ? <div className="spinner2"></div> : "Add book"}
+          {adding ? <div className="spinner2" /> : 'Add book'}
         </button>
       </div>
     </form>

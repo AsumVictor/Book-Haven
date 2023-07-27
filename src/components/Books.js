@@ -1,19 +1,21 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import Book from "./Book";
-import Form from "./Form";
-import Lottie from "lottie-react";
-import emptyAnim from "../assets/animation_json/empty.json";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import Lottie from 'lottie-react';
+import Book from './Book';
+import Form from './Form';
+import emptyAnim from '../assets/animation_json/empty.json';
 
 const Books = () => {
-  const { books, isLoading, isError, error } = useSelector(
-    (state) => state.book
+  const {
+    books, isLoading, isError, error,
+  } = useSelector(
+    (state) => state.book,
   );
 
   if (isLoading) {
     return (
       <div className="w-full  h-[80%] flex-col flex justify-center items-center">
-        <div class="spinner"></div>
+        <div className="spinner" />
         <h1>Loading...</h1>
       </div>
     );

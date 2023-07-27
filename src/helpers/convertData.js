@@ -6,7 +6,7 @@ function convertData(data) {
     const currentChapter = Math.ceil(Math.random() * 20);
     const chapters = Math.floor(Math.random() * 11) + 20;
 
-    let progress = currentChapter / chapters;
+    const progress = currentChapter / chapters;
 
     return {
       id,

@@ -115,10 +115,10 @@ const bookSlice = createSlice({
         state.deletedError = null;
       })
       .addCase(removeBook.fulfilled, (state, action) => {
-        state.books = state.books.filter((i) => i.id !== action.payload);
-        state.deleting = false;
         state.deletedSuccess = true;
+        state.deleting = false;
         state.deletedError = null;
+        state.books = state.books.filter((i) => i.id !== action.payload);
       })
       .addCase(removeBook.rejected, (state, action) => {
         state.deleting = false;

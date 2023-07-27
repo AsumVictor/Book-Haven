@@ -81,3 +81,13 @@
     transform: rotate(1turn);
   }
 }
+
+.book.deleted {
+  animation: deleted 0.3s linear;
+}
+
+@keyframes deleted {
+  100% {
+    transform: translateX(-100%);
+  }
+}
