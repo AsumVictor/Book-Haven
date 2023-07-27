@@ -6,8 +6,7 @@ const initialState = {
 };
 
 // Reducers
-export const categoriesReducer = createReducer({
-  initialState,
+export const categoriesReducer = createReducer(initialState, {
   checkstatus: (state) => ({ ...state, status: 'Under Construction' }),
 });
 

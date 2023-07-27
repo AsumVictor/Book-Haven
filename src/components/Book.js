@@ -1,22 +1,32 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from './Button';
+import { useDispatch } from 'react-redux';
+import { RemoveBook } from '../redux/book/bookSlice';
 
-const Book = ({ title, author }) => (
-  <div>
-    <h3>{title}</h3>
-    <p>
-      By
-      {author}
-    </p>
-    <Button name="Remove" />
-  </div>
-);
+const Book = ({ id, title, author }) => {
+  const dispatch = useDispatch();
+
+  const handleRemove = (id) => {
+    dispatch(RemoveBook(id));
+  };
+
+  return (
+    <div className="border-b-4">
+      <h3>{title}</h3>
+      <p>
+        By
+        {author}
+      </p>
+      <button type="button" className="px-3 py-1 bg-red-400" onClick={() => handleRemove(id)}> Remove Book </button>
+    </div>
+  );
+};
 
 Book.propTypes = {
   title: PropTypes.string,
   author: PropTypes.string,
+  id: PropTypes.string.isRequired,
 };
 
 Book.defaultProps = {
