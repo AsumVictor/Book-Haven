@@ -5,11 +5,11 @@ import { useSelector } from "react-redux";
 
 const Books = () => {
   const {books} = useSelector((state) => state.book);
-  console.log(books);
+ 
   return (
     <div>
       {books.map((book) => (
-        <Book key={book.item_id} title={book.title} author={book.author} />
+        <Book key={book.item_id} id={book.item_id} title={book.title} author={book.author} />
       ))}
       <Form />
     </div>
