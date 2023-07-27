@@ -1,31 +1,31 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
-import { AddBook } from '../redux/book/bookSlice';
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import { addBook } from "../redux/book/bookSlice";
+import { nanoid } from "nanoid";
 
 const Form = () => {
   const { books } = useSelector((state) => state.book);
   const dispatch = useDispatch();
-  const [author, setAuthor] = useState('');
-  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState("");
+  const [title, setTitle] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (title.trim() === '' || author.trim() === '') {
-      toast.error('All fileds must be completed');
+    if (title.trim() === "" || author.trim() === "") {
+      toast.error("All fileds must be completed");
       return null;
     }
 
     dispatch(
-      AddBook({
-        item_id: `item${books.length + 1}`,
+      addBook({
+        item_id: nanoid(6),
         author,
         title,
-      }),
-
+      })
     );
-    setAuthor('');
-    setTitle('');
+    setAuthor("");
+    setTitle("");
 
     return null;
   };
@@ -47,7 +47,10 @@ const Form = () => {
         value={author}
         onChange={(e) => setAuthor(e.target.value)}
       />
-      <button type="submit" className="px-3 py-1 bg-blue-700 text-white mx-4 rounded-md">
+      <button
+        type="submit"
+        className="px-3 py-1 bg-blue-700 text-white mx-4 rounded-md"
+      >
         Add book
       </button>
     </form>
