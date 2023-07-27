@@ -127,3 +127,6 @@ const bookSlice = createSlice({
       });
   },
 });
+
+// Reducer
+export const bookReducer = bookSlice.reducer;
