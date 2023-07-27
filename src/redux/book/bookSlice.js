@@ -127,20 +127,3 @@ const bookSlice = createSlice({
       });
   },
 });
-
-// Reducers
-export const bookReducer = bookSlice.reducer;
-// // Actions
-// export const AddBook = (book) => (dispatch) => {
-//   dispatch({
-//     type: 'add',
-//     payload: book,
-//   });
-// };
-
-// export const RemoveBook = (id) => (dispatch) => {
-//   dispatch({
-//     type: 'remove',
-//     payload: id,
-//   });
-// };
