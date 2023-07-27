@@ -1,16 +1,16 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import { Books, Categories } from "./Routes";
-import "react-toastify/dist/ReactToastify.css";
-import { useEffect } from "react";
-import { fetchBooks } from "./redux/book/bookSlice";
-import { useDispatch } from "react-redux";
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import { Books, Categories } from './Routes';
+import 'react-toastify/dist/ReactToastify.css';
+import { fetchBooks } from './redux/book/bookSlice';
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchBooks());
-  }, []);
+  });
 
   return (
     <BrowserRouter>

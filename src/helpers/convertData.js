@@ -1,18 +1,14 @@
-import React from "react";
-
 function convertData(data) {
-  const result = [];
-  for (const id in data) {
-    if (data.hasOwnProperty(id)) {
-      const entry = data[id][0];
-      result.push({
-        id: id,
-        author: entry.author,
-        title: entry.title,
-        category: entry.category,
-      });
-    }
-  }
+  const keys = Object.keys(data);
+  const result = keys.map((id) => {
+    const bookData = data[id][0];
+    return {
+      id,
+      author: bookData.author,
+      title: bookData.title,
+      category: bookData.category,
+    };
+  });
   return result;
 }
 

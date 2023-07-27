@@ -1,11 +1,13 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import Book from "./Book";
-import Form from "./Form";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import Book from './Book';
+import Form from './Form';
 
 const Books = () => {
-  const { books, isLoading, isError, error } = useSelector(
-    (state) => state.book
+  const {
+    books, isLoading, isError, error,
+  } = useSelector(
+    (state) => state.book,
   );
 
   if (isLoading) {
@@ -19,11 +21,13 @@ const Books = () => {
   if (isError) {
     return (
       <>
-        <h1>Error occured! {error}</h1>
+        <h1>
+          Error occured!
+          {error}
+        </h1>
       </>
     );
   }
-
 
   return (
     <div>

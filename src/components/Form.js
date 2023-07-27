@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
-import { addBook } from "../redux/book/bookSlice";
-import { nanoid } from "nanoid";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { nanoid } from 'nanoid';
+import { addBook } from '../redux/book/bookSlice';
 
 const Form = () => {
   const dispatch = useDispatch();
-  const [author, setAuthor] = useState("");
-  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState('');
+  const [title, setTitle] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (title.trim() === "" || author.trim() === "") {
-      toast.error("All fileds must be completed");
+    if (title.trim() === '' || author.trim() === '') {
+      toast.error('All fileds must be completed');
       return null;
     }
 
@@ -21,11 +21,11 @@ const Form = () => {
         item_id: nanoid(),
         author,
         title,
-        category: "unknown",
-      })
+        category: 'unknown',
+      }),
     );
-    setAuthor("");
-    setTitle("");
+    setAuthor('');
+    setTitle('');
 
     return null;
   };

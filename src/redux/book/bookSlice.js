@@ -1,45 +1,44 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import BASE_URL from "../../server";
-import convertData from "../../helpers/convertData";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import BASE_URL from '../../server';
+import convertData from '../../helpers/convertData';
 // fetch actions
-export const fetchBooks = createAsyncThunk("books/getBooks", async () => {
+export const fetchBooks = createAsyncThunk('books/getBooks', async () => {
   try {
     const response = await axios.get(`${BASE_URL}/books`);
     return response.data;
   } catch (error) {
-    let errorMessage = error.response
+    const errorMessage = error.response
       ? error.response.data.error.message
       : error.message;
     return errorMessage;
   }
 });
 
-export const addBook = createAsyncThunk("books/addBook", async (book) => {
+export const addBook = createAsyncThunk('books/addBook', async (book) => {
   try {
     const response = await axios.post(`${BASE_URL}/books`, book);
     if (!response.data) {
-      throw new Error("Error occured! Try again");
+      throw new Error('Error occured! Try again');
     }
     return book;
   } catch (error) {
-    console.log(error);
-    let errorMessage = error.response
+    const errorMessage = error.response
       ? error.response.data.message
       : error.message;
     return errorMessage;
   }
 });
 
-export const removeBook = createAsyncThunk("books/removeBook", async (id) => {
+export const removeBook = createAsyncThunk('books/removeBook', async (id) => {
   try {
     const response = await axios.delete(`${BASE_URL}/books/${id}`);
     if (!response.data) {
-      throw new Error("Error occured! Try again");
+      throw new Error('Error occured! Try again');
     }
     return id;
   } catch (error) {
-    let errorMessage = error.response
+    const errorMessage = error.response
       ? error.response.data.message
       : error.message;
     return errorMessage;
@@ -61,7 +60,7 @@ const initialState = {
 };
 
 const bookSlice = createSlice({
-  name: "book",
+  name: 'book',
   initialState,
   reducers: {
     add: (state, action) => {
