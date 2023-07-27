@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import Button from './Button';
 
 const Book = ({ title, author }) => (
-  <div>
+  <div className='border-b-4'>
     <h3>{title}</h3>
     <p>
       By
       {author}
     </p>
-    <Button name="Remove" />
+    <button className='px-3 py-1 bg-red-400'>Remove</button>
   </div>
 );
 
