@@ -12,7 +12,7 @@ const Book = ({ id, title, author, currentChapter, progress }) => {
   };
 
   return (
-    <div className="w-full bg-white hover:border-_blue mt-10 border rouned-md grid 730px:grid-cols-2 gap-y-5 pb-3">
+    <div className="w-full bg-white hover:border-_blue border rouned-md grid 730px:grid-cols-2 gap-y-5 pb-3">
       <div className="px-2 md:px-6 pt-4 py-2 flex flex-col gap-3">
         <h3 className="font-bold text-gray-500">Category</h3>
         <h3 className="font-extrabold text-3xl text-black capitalize">
