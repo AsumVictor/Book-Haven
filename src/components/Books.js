@@ -4,12 +4,40 @@ import Book from './Book';
 import Form from './Form';
 
 const Books = () => {
-  const { books } = useSelector((state) => state.book);
+  const {
+    books, isLoading, isError, error,
+  } = useSelector(
+    (state) => state.book,
+  );
+
+  if (isLoading) {
+    return (
+      <>
+        <h1>LOADING BOOKS...</h1>
+      </>
+    );
+  }
+
+  if (isError) {
+    return (
+      <>
+        <h1>
+          Error occured!
+          {error}
+        </h1>
+      </>
+    );
+  }
 
   return (
     <div>
       {books.map((book) => (
-        <Book key={book.item_id} id={book.item_id} title={book.title} author={book.author} />
+        <Book
+          key={book.id}
+          id={book.id}
+          title={book.title}
+          author={book.author}
+        />
       ))}
       <Form />
     </div>

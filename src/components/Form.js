@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import { AddBook } from '../redux/book/bookSlice';
+import { nanoid } from 'nanoid';
+import { addBook } from '../redux/book/bookSlice';
 
 const Form = () => {
-  const { books } = useSelector((state) => state.book);
   const dispatch = useDispatch();
   const [author, setAuthor] = useState('');
   const [title, setTitle] = useState('');
@@ -17,12 +17,12 @@ const Form = () => {
     }
 
     dispatch(
-      AddBook({
-        item_id: `item${books.length + 1}`,
+      addBook({
+        item_id: nanoid(),
         author,
         title,
+        category: 'unknown',
       }),
-
     );
     setAuthor('');
     setTitle('');
@@ -31,7 +31,7 @@ const Form = () => {
   };
 
   return (
-    <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
+    <form className="flex flex-col gap-2" onSubmit={(e) => handleSubmit(e)}>
       <h3>ADD NEW BOOK</h3>
       <input
         type="text"
@@ -47,7 +47,10 @@ const Form = () => {
         value={author}
         onChange={(e) => setAuthor(e.target.value)}
       />
-      <button type="submit" className="px-3 py-1 bg-blue-700 text-white mx-4 rounded-md">
+      <button
+        type="submit"
+        className="px-3 py-1 bg-blue-700 text-white mx-4 rounded-md"
+      >
         Add book
       </button>
     </form>
