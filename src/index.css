@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  font-family: Montserrat, sans-serif;
+}
+
+.spinner {
+  position: relative;
+  width: 56px;
+  height: 56px;
+}
+
+.spinner::before,
+.spinner::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  animation: spinner-rfi6tk 0.8s infinite linear;
+  box-sizing: border-box;
+  border: 11.2px solid rgba(71, 75, 255, 0.1);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.spinner::before {
+  animation-direction: reverse;
+  border-right-color: #474bff;
+  right: calc(50% - 5.6px);
+}
+
+.spinner::after {
+  border-left-color: #474bff;
+  left: calc(50% - 5.6px);
+}
+
+@keyframes spinner-rfi6tk {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50%,
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner2 {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  border: 3.2px solid #0000;
+  border-radius: 50%;
+  border-color: rgba(92, 95, 147, 0.61) #0000;
+  animation: spinner-e04l1k 1s infinite linear;
+}
+
+.spinner2::before,
+.spinner2::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 1.6px;
+  border: inherit;
+  border-radius: 50%;
+}
+
+.spinner2::before {
+  border-color: #292cf8 #0000;
+  animation: inherit;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+}
+
+.spinner2::after {
+  margin: 6.4px;
+}
+
+@keyframes spinner-e04l1k {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.book.deleted {
+  animation: deleted 0.3s linear;
+}
+
+@keyframes deleted {
+  100% {
+    transform: translateX(-100%);
+  }
+}
