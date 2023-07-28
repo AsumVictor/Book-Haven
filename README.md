@@ -56,9 +56,9 @@ Book Haven is a comprehensive and user-friendly Books-store app developed to cat
 
 - Responsive Design: BookWorld is built with a responsive design, ensuring a seamless and visually appealing experience across various devices, including desktops, tablets, and smartphones.
 
- <!-- ## Live demo <a name="key-features"></a>
+  ## Live demo <a name="key-features"></a>
 
-I have deployed the project of github. [Click to view the live version of my project](https://aiasum-todo.netlify.app/)  -->
+I have deployed the project of github. [Click to view the live version of my project](https://iabookhaven.onrender.com) 
 
 ## 💻 Getting Started <a name="getting-started"></a>
 

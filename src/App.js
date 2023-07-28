@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import { Books, Categories } from './Routes';
 import 'react-toastify/dist/ReactToastify.css';
 import { fetchBooks } from './redux/book/bookSlice';
+import Header from './components/Navigation';
 
 function App() {
   const dispatch = useDispatch();
@@ -15,11 +16,13 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Books />} />
-        <Route path="/categories" element={<Categories />} />
+        <Route element={<Header />}>
+          <Route path="/" element={<Books />} />
+          <Route path="/categories" element={<Categories />} />
+        </Route>
       </Routes>
       <ToastContainer
-        position="top-center"
+        position="bottom-right"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -28,7 +31,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme="colored"
       />
     </BrowserRouter>
   );
