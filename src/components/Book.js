@@ -7,7 +7,7 @@ import ProgressBar from './Progressbar';
 import deleteAnim from '../assets/animation_json/deleting.json';
 
 const Book = ({
-  id, title, author, currentChapter, progress,
+  id, title, author, currentChapter, progress, category,
 }) => {
   const dispatch = useDispatch();
   const { deletedSuccess } = useSelector((state) => state.book);
@@ -29,7 +29,7 @@ const Book = ({
           click ? 'opacity-20' : ''
         }  px-2 md:px-6 pt-4 py-2 flex flex-col gap-3`}
       >
-        <h3 className="font-bold text-gray-500">Category</h3>
+        <h3 className="font-bold text-gray-500">{category}</h3>
         <h3 className="font-extrabold text-3xl text-black capitalize">
           {title}
         </h3>
@@ -109,10 +109,12 @@ Book.propTypes = {
   author: PropTypes.string,
   id: PropTypes.string.isRequired,
   progress: PropTypes.number,
+  category: PropTypes.number,
   currentChapter: PropTypes.number,
 };
 
 Book.defaultProps = {
+  category: 'Others',
   title: 'Book title',
   author: 'Unknown Author',
   progress: 0,

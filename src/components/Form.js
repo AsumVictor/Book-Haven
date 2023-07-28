@@ -34,7 +34,7 @@ const Form = () => {
         category: selectedCategory,
       }),
     );
-    if (addedSuccess) {
+    if (!adding && addedSuccess) {
       setAuthor('');
       setTitle('');
       setSelectedCategory('');
@@ -49,14 +49,14 @@ const Form = () => {
       className="gap-2 mt-10 grid 730px:grid-cols-3 mb-[5cm]"
       onSubmit={(e) => handleSubmit(e)}
     >
-      <h3 className="col-span-full font-bold text-2xl text-_blue text-center">
+      <h3 className="col-span-full font-bold text-2xl text-gray-500 text-left">
         ADD NEW BOOK
       </h3>
       <input
         disabled={adding}
         type="text"
         placeholder="Book title"
-        className="border-2 border-_blue outline-none px-2 placeholder:font-semibold h-[1.2cm] rounded-md "
+        className="border-2 border-gray-400 bg-white outline-none px-2 placeholder:font-semibold h-[1.2cm] rounded-md "
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
@@ -64,7 +64,7 @@ const Form = () => {
         disabled={adding}
         type="text"
         placeholder="Author"
-        className="border-2 border-_blue outline-none px-2 placeholder:font-semibold h-[1.2cm] rounded-md "
+        className="border-2 border-gray-400 bg-white outline-none px-2 placeholder:font-semibold h-[1.2cm] rounded-md "
         value={author}
         onChange={(e) => setAuthor(e.target.value)}
       />
@@ -74,7 +74,7 @@ const Form = () => {
           disabled={adding}
           value={selectedCategory}
           id="bookCategory"
-          className="border-2 border-_blue outline-none px-2 placeholder:font-semibold h-[1.2cm] rounded-md w-full"
+          className="border-2 border-gray-400 bg-white outline-none px-2 placeholder:font-semibold h-[1.2cm] rounded-md w-full text-gray-600"
           onChange={handleCategoryChange}
         >
           <option className="bg-gray-400" value="">
@@ -89,11 +89,11 @@ const Form = () => {
         </select>
       </div>
 
-      <div className="col-span-full flex justify-center items-center mt-5">
+      <div className="col-span-full flex justify-end items-center mt-5">
         <button
           disabled={adding}
           type="submit"
-          className="px-3 py-2 730px:w-8/12 w-full  bg-_blue font-semibold text-xl text-white mx-4 rounded-md disabled:bg-gray-300 flex justify-center items-center"
+          className="px-3 py-2 bg-_blue font-semibold text-xl text-white mx-4 rounded-md disabled:bg-gray-300 flex justify-center items-center w-[5cm]"
         >
           {adding ? <div className="spinner2" /> : 'Add book'}
         </button>

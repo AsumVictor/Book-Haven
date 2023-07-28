@@ -50,6 +50,7 @@ const Books = () => {
             author={book.author}
             currentChapter={book.currentChapter}
             progress={book.progress}
+            category={book.category}
           />
         ))
       )}
