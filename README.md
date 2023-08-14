@@ -21,7 +21,7 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖Math Magician <a name="about-project"></a>
+# 📖Bookhaven <a name="about-project"></a>
 
 Book Haven is a comprehensive and user-friendly Books-store app developed to cater to all book enthusiasts, offering a seamless browsing and shopping experience. Whether you are an avid reader, a literature lover, or a student seeking academic resources, BookWorld has got you covered. This app is designed as part of the Microverse assignment to showcase the power of modern web technologies in creating a captivating online bookstore.
 
